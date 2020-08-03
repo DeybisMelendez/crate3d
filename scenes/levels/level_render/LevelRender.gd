@@ -11,7 +11,6 @@ func init(level_name, level_path):
 	var pos = Vector3.ZERO
 	for c in level:
 		pos.x +=1
-		var new
 		match c:
 			"#":
 				instance_node(Wall, pos)

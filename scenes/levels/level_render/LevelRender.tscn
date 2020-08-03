@@ -20,19 +20,20 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/HBoxContainer"]
-margin_left = 617.0
-margin_right = 659.0
+margin_left = 297.0
+margin_right = 339.0
 margin_bottom = 14.0
 text = "Level: "
 
 [node name="Label2" type="Label" parent="Control/HBoxContainer"]
-margin_left = 663.0
-margin_right = 663.0
+margin_left = 343.0
+margin_right = 343.0
 margin_bottom = 14.0
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0 )
-visible = false
+light_energy = 0.5
 shadow_enabled = true
 directional_shadow_mode = 0
+directional_shadow_depth_range = 1
 directional_shadow_max_distance = 50.0
