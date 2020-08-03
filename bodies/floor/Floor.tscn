@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/textures/wood/WoodFloor040_2K_Roughness.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/textures/wood/WoodFloor040_2K_Normal.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/textures/wood/WoodFloor040_2K_Color.jpg" type="Texture" id=3]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 8, 8 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 3 )
+roughness_texture = ExtResource( 1 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
