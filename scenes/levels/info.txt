@@ -1,0 +1,6 @@
+# = wall
+space = floor
+$ = box
+. = target
+@ = player
+* = box and target
