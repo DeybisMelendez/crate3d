@@ -1,0 +1,119 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://styles/panel.tres" type="StyleBox" id=1]
+[ext_resource path="res://assets/fonts/ComicHelvetic_Medium.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://ui/func_button/FuncButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/level_button/LevelButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/menu_select/MenuSelect.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 4
+outline_color = Color( 0.054902, 0.027451, 0.105882, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+LevelButton = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0470588, 0.180392, 0.266667, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 32.0
+margin_top = 48.0
+margin_right = -32.0
+margin_bottom = -16.0
+rect_min_size = Vector2( 576, 296 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+follow_focus = true
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/ScrollContainer"]
+margin_right = 556.0
+size_flags_horizontal = 3
+
+[node name="Levels" type="GridContainer" parent="Panel/ScrollContainer/CenterContainer"]
+margin_left = 278.0
+margin_right = 278.0
+custom_constants/vseparation = 32
+custom_constants/hseparation = 16
+columns = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+margin_bottom = 60.0
+custom_constants/separation = 16
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Left" parent="HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 117.0
+margin_right = 165.0
+margin_bottom = 60.0
+
+[node name="WorldName" type="Label" parent="HBoxContainer"]
+margin_left = 181.0
+margin_right = 458.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+custom_fonts/font = SubResource( 1 )
+text = "World Name"
+align = 1
+valign = 2
+
+[node name="Right" parent="HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 474.0
+margin_right = 522.0
+margin_bottom = 60.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = -56.0
+margin_right = -8.0
+margin_bottom = -8.0
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main" parent="HBoxContainer2" instance=ExtResource( 3 )]
+margin_right = 48.0
+margin_bottom = 48.0
