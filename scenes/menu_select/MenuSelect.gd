@@ -64,7 +64,7 @@ func left_pressed():
 	setup_levels(worlds_list[pointer])
 
 func right_pressed():
-	if pointer > worlds_list.size() -1:
+	if pointer >= worlds_list.size() -1:
 		pointer = 0
 	else:
 		pointer += 1

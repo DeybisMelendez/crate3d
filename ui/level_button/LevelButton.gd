@@ -16,4 +16,5 @@ func button_up():
 	Global.level.name = level_name
 	Global.level.world = world
 	Global.level.path = level
+	print(level)
 	get_tree().change_scene(LevelRender)
