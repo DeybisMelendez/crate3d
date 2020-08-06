@@ -9,7 +9,7 @@ func _ready():
 	if stars > 0:
 		for i in stars:
 			$HBoxContainer.get_child(i-1).show()
-	level_name.erase(level_name.length()-4,4)
+	#level_name.erase(level_name.length()-4,4)
 	$MarginContainer/Button.text = level_name
 
 func button_up():

@@ -16,6 +16,8 @@ func _ready():
 	Main.set_texture("res://assets/images/home.png")
 	setup_worlds_list()
 	setup_levels(worlds_list[pointer])
+	Left.connect("button_pressed", self, "left_pressed")
+	Right.connect("button_pressed", self, "right_pressed")
 
 func setup_worlds_list():
 	var dir = Directory.new()
@@ -40,13 +42,30 @@ func setup_levels(world):
 	dir.open(path)
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
+	var number_files = 0
 	while file_name != "":
 		if not dir.current_is_dir():
 			if file_name != ".." and file_name != ".":
-				var new_button = LevelButton.instance()
-				new_button.level = path + file_name
-				new_button.level_name = file_name
-				new_button.world = world
-				#new_button.stars = # TODO: añadir estrellas
-				Levels.add_child(new_button)
+				number_files += 1
 		file_name = dir.get_next()
+	for i in number_files:
+		var new_button = LevelButton.instance()
+		new_button.level = path + str(i+1) + ".txt"
+		new_button.level_name = str(i+1)
+		new_button.world = world
+		#new_button.stars = # TODO: añadir estrellas
+		Levels.add_child(new_button)
+
+func left_pressed():
+	if pointer > 0:
+		pointer -= 1
+	else:
+		pointer = worlds_list.size()-1
+	setup_levels(worlds_list[pointer])
+
+func right_pressed():
+	if pointer > worlds_list.size() -1:
+		pointer = 0
+	else:
+		pointer += 1
+	setup_levels(worlds_list[pointer])
