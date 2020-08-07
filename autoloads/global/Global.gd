@@ -8,14 +8,14 @@ var level = {
 
 var total_stars = 0
 const factor_star = {
-	Minicosmos = 1.2,
+	Minicosmos = 1.3,
 	Picocosmos = 1.5
 }
 
 func _ready():
 	total_stars = load_data("total_stars")
 	if total_stars == null:
-		total_stars = 1
+		total_stars = 0
 
 func save_data(data, file_name):
 	var file = File.new()

@@ -14,6 +14,7 @@ func _ready():
 			$HBoxContainer.get_child(i).show()
 	if stars_to_unlock <= Global.total_stars:
 		Butn.text = level_name
+		$MarginContainer/Button/Star.hide()
 	else:
 		locked = true
 		var blocked_style = load("res://styles/buttons/level_blocked_normal.tres")
