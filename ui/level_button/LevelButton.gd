@@ -22,7 +22,7 @@ func _ready():
 		Butn.set("custom_styles/pressed", blocked_style)
 		Butn.set("custom_styles/hover", blocked_style)
 		Butn.text = str(stars_to_unlock)
-		$AcceptDialog.dialog_text = "Sorry you need " + str(stars_to_unlock) + " stars to play this level :(!"
+		$AcceptDialog.dialog_text = "You need " + str(stars_to_unlock) + " stars to play this level!"
 
 func button_up():
 	if locked:

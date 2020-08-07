@@ -16,14 +16,14 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_right = 72.0
+margin_right = 131.0
 margin_bottom = 72.0
 rect_min_size = Vector2( 72, 72 )
 
 [node name="Button" type="Button" parent="MarginContainer"]
-margin_left = 4.0
+margin_left = 33.0
 margin_top = 4.0
-margin_right = 68.0
+margin_right = 97.0
 margin_bottom = 68.0
 rect_min_size = Vector2( 64, 64 )
 size_flags_horizontal = 4
@@ -53,7 +53,7 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_top = 72.0
-margin_right = 72.0
+margin_right = 131.0
 margin_bottom = 72.0
 custom_constants/separation = 0
 alignment = 1
@@ -92,7 +92,8 @@ expand = true
 stretch_mode = 6
 
 [node name="AcceptDialog" type="AcceptDialog" parent="."]
+visible = true
 margin_top = 72.0
-margin_right = 85.0
+margin_right = 131.0
 margin_bottom = 130.0
-window_title = "Sorry!"
+window_title = "Level Locked"
