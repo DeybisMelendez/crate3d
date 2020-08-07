@@ -53,7 +53,7 @@ func setup_levels(world):
 		new_button.level = path + str(i+1) + ".txt"
 		new_button.level_name = str(i+1)
 		new_button.world = world
-		#new_button.stars = # TODO: añadir estrellas
+		new_button.stars_to_unlock = floor(i * Global.factor_star[world])
 		Levels.add_child(new_button)
 
 func left_pressed():
