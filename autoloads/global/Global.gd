@@ -3,7 +3,8 @@ extends Node
 var level = {
 	name = "",
 	path = "",
-	world = ""
+	world = "",
+	push = 0
 }
 
 var stars = {
