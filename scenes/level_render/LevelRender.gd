@@ -35,7 +35,8 @@ func _ready():
 				pos.x = 0
 			"0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
 				push += c
-	HUD.update_push(0, int(push))
+	HUD.total_push = int(push)
+	HUD.update_push()
 
 func load_level(path):
 	var file = File.new()
