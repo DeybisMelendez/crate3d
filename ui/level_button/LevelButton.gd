@@ -12,7 +12,7 @@ func _ready():
 	if stars > 0:
 		for i in stars:
 			$HBoxContainer.get_child(i).show()
-	if stars_to_unlock <= Global.total_stars:
+	if stars_to_unlock <= Global.stars[world].stars:
 		Butn.text = level_name
 		$MarginContainer/Button/Star.hide()
 	else:
