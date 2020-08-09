@@ -19,6 +19,7 @@ func _ready():
 	setup_levels(worlds_list[pointer])
 	Left.connect("button_pressed", self, "left_pressed")
 	Right.connect("button_pressed", self, "right_pressed")
+	Main.connect("button_pressed", self, "main")
 
 func setup_worlds_list():
 	var dir = Directory.new()
@@ -71,3 +72,6 @@ func right_pressed():
 	else:
 		pointer += 1
 	setup_levels(worlds_list[pointer])
+
+func main():
+	get_tree().change_scene("res://scenes/main/Main.tscn")
