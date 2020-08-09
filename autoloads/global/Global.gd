@@ -6,16 +6,20 @@ var level = {
 	world = ""
 }
 
-var total_stars = 0
-const factor_star = {
-	Minicosmos = 1.3,
-	Picocosmos = 1.5
+var stars = {
+	Minicosmos = {
+		factor = 1.3,
+		stars = 0
+	},
+	Picocosmos = {
+		factor = 1.5,
+		stars = 0
+	}
 }
 
 func _ready():
-	total_stars = load_data("total_stars")
-	if total_stars == null:
-		total_stars = 0
+	if load_data("stars") != null:
+		stars = load_data("stars")
 
 func save_data(data, file_name):
 	var file = File.new()

@@ -12,7 +12,7 @@ func _ready():
 	if stars > 0:
 		for i in stars:
 			$HBoxContainer.get_child(i).show()
-	if stars_to_unlock <= Global.total_stars:
+	if stars_to_unlock <= Global.stars[world].stars:
 		Butn.text = level_name
 		$MarginContainer/Button/Star.hide()
 	else:
@@ -22,7 +22,7 @@ func _ready():
 		Butn.set("custom_styles/pressed", blocked_style)
 		Butn.set("custom_styles/hover", blocked_style)
 		Butn.text = str(stars_to_unlock)
-		$AcceptDialog.dialog_text = "Sorry you need " + str(stars_to_unlock) + " stars to play this level :(!"
+		$AcceptDialog.dialog_text = "You need " + str(stars_to_unlock) + " stars to play this level!"
 
 func button_up():
 	if locked:

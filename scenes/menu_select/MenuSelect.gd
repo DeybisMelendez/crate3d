@@ -6,6 +6,7 @@ onready var Right = $HBoxContainer/Right
 onready var Main = $HBoxContainer2/Main
 onready var Levels = $Panel/ScrollContainer/CenterContainer/Levels
 onready var WorldName = $HBoxContainer/WorldName
+onready var Stars =  $HBoxContainer2/Panel/HBoxContainer/Stars
 var levels_path = "res://scenes/levels/"
 var worlds_list = []
 var pointer = 0
@@ -53,8 +54,9 @@ func setup_levels(world):
 		new_button.level = path + str(i+1) + ".txt"
 		new_button.level_name = str(i+1)
 		new_button.world = world
-		new_button.stars_to_unlock = ceil(i * Global.factor_star[world])
+		new_button.stars_to_unlock = ceil(i * Global.stars[world].factor)
 		Levels.add_child(new_button)
+	Stars.text = str(Global.stars[world].stars)
 
 func left_pressed():
 	if pointer > 0:

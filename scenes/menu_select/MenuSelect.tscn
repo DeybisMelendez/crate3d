@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://styles/panel.tres" type="StyleBox" id=1]
 [ext_resource path="res://assets/fonts/ComicHelvetic_Medium.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://ui/func_button/FuncButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/level_button/LevelButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/menu_select/MenuSelect.gd" type="Script" id=5]
+[ext_resource path="res://styles/fonts/font_32.tres" type="DynamicFont" id=6]
+[ext_resource path="res://styles/buttons/level_normal.tres" type="StyleBox" id=7]
+[ext_resource path="res://assets/images/star.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -36,8 +39,8 @@ anchor_bottom = 1.0
 margin_left = 32.0
 margin_top = 48.0
 margin_right = -32.0
-margin_bottom = -16.0
-rect_min_size = Vector2( 576, 296 )
+margin_bottom = -52.0
+rect_min_size = Vector2( 576, 260 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/panel = ExtResource( 1 )
@@ -74,7 +77,7 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
-margin_bottom = 60.0
+margin_bottom = 68.0
 custom_constants/separation = 16
 alignment = 1
 __meta__ = {
@@ -84,12 +87,13 @@ __meta__ = {
 [node name="Left" parent="HBoxContainer" instance=ExtResource( 3 )]
 margin_left = 117.0
 margin_right = 165.0
-margin_bottom = 60.0
+margin_bottom = 68.0
 
 [node name="WorldName" type="Label" parent="HBoxContainer"]
 margin_left = 181.0
+margin_top = 4.0
 margin_right = 458.0
-margin_bottom = 60.0
+margin_bottom = 64.0
 rect_min_size = Vector2( 0, 60 )
 custom_fonts/font = SubResource( 1 )
 text = "World Name"
@@ -99,21 +103,57 @@ valign = 2
 [node name="Right" parent="HBoxContainer" instance=ExtResource( 3 )]
 margin_left = 474.0
 margin_right = 522.0
-margin_bottom = 60.0
+margin_bottom = 68.0
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = -56.0
-margin_right = -8.0
-margin_bottom = -8.0
+margin_top = -76.0
 custom_constants/separation = 16
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Main" parent="HBoxContainer2" instance=ExtResource( 3 )]
-margin_right = 48.0
+margin_left = 224.0
+margin_right = 272.0
+margin_bottom = 76.0
+
+[node name="Panel" type="Panel" parent="HBoxContainer2"]
+margin_left = 288.0
+margin_top = 14.0
+margin_right = 416.0
+margin_bottom = 62.0
+rect_min_size = Vector2( 128, 48 )
+size_flags_vertical = 4
+custom_styles/panel = ExtResource( 7 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2/Panel/HBoxContainer"]
+self_modulate = Color( 1, 1, 0, 1 )
+margin_right = 32.0
 margin_bottom = 48.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stars" type="Label" parent="HBoxContainer2/Panel/HBoxContainer"]
+margin_left = 36.0
+margin_top = 9.0
+margin_right = 54.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 6 )
+text = "0"
+valign = 1
