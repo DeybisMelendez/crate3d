@@ -1,7 +1,7 @@
-extends Control
+extends CanvasLayer
 
-onready var Level = $HBoxContainer/Level
-onready var Push = $HBoxContainer/Push
+onready var Level = $HUD/HBoxContainer/Level
+onready var Push = $HUD/HBoxContainer/Push
 
 func _ready():
 	Level.text = "World: " + Global.level.world + " Level: " + Global.level.name
