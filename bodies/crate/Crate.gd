@@ -74,7 +74,6 @@ func left_exited(body):
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
-		print(walls)
 		if can_move and not is_moving:
 			var new = global_transform
 			new.origin += dir * 8
@@ -87,3 +86,4 @@ func _physics_process(delta):
 			is_moving = true
 			yield($Tween,"tween_all_completed")
 			is_moving = false
+			get_tree().current_scene.HUD.add_push()

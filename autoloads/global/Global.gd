@@ -3,13 +3,14 @@ extends Node
 var level = {
 	name = "",
 	path = "",
-	world = ""
+	world = "",
+	push = 0
 }
 
 var stars = {
 	Minicosmos = {
 		factor = 1.3,
-		stars = 0
+		stars = 10
 	},
 	Picocosmos = {
 		factor = 1.5,

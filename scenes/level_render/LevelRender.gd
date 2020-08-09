@@ -4,12 +4,12 @@ var Floor = preload("res://bodies/floor/Floor.tscn")
 var Crate = preload("res://bodies/crate/Crate.tscn")
 var Player = preload("res://bodies/player/Player.tscn")
 var Target = preload("res://bodies/target/Target.tscn")
+onready var HUD = $HUD
 
 func _ready():
-	var level_name = Global.level.world + " " + Global.level.name
-	$Control/HBoxContainer/Label2.text = level_name
 	var level = load_level(Global.level.path)
 	var pos = Vector3.ZERO
+	var push = ""
 	for c in level:
 		pos.x +=1
 		match c:
@@ -33,9 +33,10 @@ func _ready():
 			"\n":
 				pos.z += 1
 				pos.x = 0
-
-#func _ready():
-#	init("Minicosmos 1", "res://scenes/levels/minicosmos/1.txt")
+			"0", "1", "2", "3", "4", "5", "6", "7", "8", "9":
+				push += c
+	HUD.total_push = int(push)
+	HUD.update_push()
 
 func load_level(path):
 	var file = File.new()
