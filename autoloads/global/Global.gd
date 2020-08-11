@@ -10,7 +10,7 @@ var level = {
 var stars = {
 	Minicosmos = {
 		factor = 1.3,
-		stars = 10
+		stars = 0
 	},
 	Picocosmos = {
 		factor = 1.5,
