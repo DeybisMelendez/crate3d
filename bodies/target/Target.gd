@@ -8,9 +8,13 @@ func _ready():
 func body_entered(body):
 	if body.is_in_group("crate"):
 		has_crate = true
-		$AnimationPlayer.play("up")
+		body.set_target()
+		$MeshInstance.hide()
+		#$AnimationPlayer.play("up")
 
 func body_exited(body):
 	if body.is_in_group("crate"):
 		has_crate = false
-		$AnimationPlayer.play("down")
+		$MeshInstance.show()
+		body.quit_target()
+		#$AnimationPlayer.play("down")

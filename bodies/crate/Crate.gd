@@ -9,6 +9,7 @@ var walls = {
 	left = false,
 	right = false
 }
+var style_target = preload("res://styles/CrateTarget.tres")
 func _ready():
 	$Forward.connect("body_entered", self, "forward_entered")
 	$Back.connect("body_entered", self, "back_entered")
@@ -87,3 +88,9 @@ func _physics_process(delta):
 			yield($Tween,"tween_all_completed")
 			is_moving = false
 			get_tree().current_scene.HUD.add_push()
+
+func set_target():
+	$MeshInstance.material_override = style_target
+
+func quit_target():
+	$MeshInstance.material_override = null
