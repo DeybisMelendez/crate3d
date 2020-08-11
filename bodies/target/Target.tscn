@@ -44,7 +44,9 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 4, 0 ), Vector3( 0, 10, 0 ) ]
 }
 
-[node name="Area" type="Area"]
+[node name="Area" type="Area" groups=[
+"target",
+]]
 monitorable = false
 script = ExtResource( 1 )
 

@@ -4,6 +4,7 @@ var Floor = preload("res://bodies/floor/Floor.tscn")
 var Crate = preload("res://bodies/crate/Crate.tscn")
 var Player = preload("res://bodies/player/Player.tscn")
 var Target = preload("res://bodies/target/Target.tscn")
+var win = false
 onready var HUD = $HUD
 
 func _ready():
@@ -51,3 +52,14 @@ func instance_node(node, pos):
 	var this = node.instance()
 	this.transform.origin = pos*8
 	add_child(this)
+
+func _physics_process(delta):
+	var targets = get_tree().get_nodes_in_group("target")
+	if not win:
+		var check_target = true
+		for target in targets:
+			if not target.has_crate:
+				check_target = false
+		if check_target:
+			HUD.show_WinMenu()
+			win = true
